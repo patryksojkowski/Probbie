@@ -1,6 +1,6 @@
 ﻿namespace Probbie.Domain.ValueTypes
 {
-  internal struct HistoryCount
+  internal readonly struct HistoryCount
   {
     public HistoryCount(int value)
     {
@@ -10,7 +10,7 @@
       Value = value;
     }
 
-    public int Value { get; set; }
+    public int Value { get; }
 
     public static implicit operator HistoryCount(int value)
     {

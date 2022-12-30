@@ -1,8 +1,9 @@
-﻿using Probbie.Domain.ValueTypes;
+﻿using Probbie.Domain.Interfaces;
+using Probbie.Domain.ValueTypes;
 
 namespace Probbie.Domain
 {
-  internal class HostHistory
+  internal class HostHistory : IHostHistory
   {
     private HistoryCount _historyCount;
     private AverageLatency _averageLatency;
