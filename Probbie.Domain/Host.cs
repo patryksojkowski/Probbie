@@ -9,6 +9,11 @@ namespace Probbie.Domain
     private readonly IHostHistory _hostHistory;
     private readonly IPingSender _pingSender;
 
+    public Host(HostAddress address)
+    : this(address, new HostHistory(0,0), new PingSender())
+    {
+    }
+
     public Host(HostAddress address, IHostHistory hostHistory, IPingSender pingSender)
     {
       _address = address;

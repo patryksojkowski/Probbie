@@ -1,6 +1,6 @@
 ﻿namespace Probbie.Domain.ValueTypes
 {
-  internal readonly struct HostAddress
+  public readonly struct HostAddress
   {
     public string Value { get; }
 
