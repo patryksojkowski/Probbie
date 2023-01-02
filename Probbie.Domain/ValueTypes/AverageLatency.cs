@@ -2,7 +2,7 @@
 {
   internal readonly struct AverageLatency
   {
-    public AverageLatency(int value)
+    public AverageLatency(double value)
     {
       if (value < 0)
         throw new ArgumentOutOfRangeException(nameof(value));
@@ -10,26 +10,26 @@
       Value = value;
     }
 
-    public int Value { get; }
+    public double Value { get; }
 
-    public static implicit operator AverageLatency(int value)
+    public static implicit operator AverageLatency(double value)
     {
       return new AverageLatency(value);
     }
     
     public static bool operator ==(AverageLatency a, AverageLatency b)
     {
-      return a.Value == b.Value;
+      return Math.Abs(a.Value - b.Value) < 0.00001;
     }
 
     public static bool operator !=(AverageLatency a, AverageLatency b)
     {
-      return a.Value != b.Value;
+      return Math.Abs(a.Value - b.Value) > 0.00001;
     }
 
     public bool Equals(AverageLatency other)
     {
-      return Value == other.Value;
+      return this == other;
     }
 
     public override bool Equals(object? obj)
@@ -39,7 +39,7 @@
 
     public override int GetHashCode()
     {
-      return Value;
+      return Value.GetHashCode();
     }
   }
 }

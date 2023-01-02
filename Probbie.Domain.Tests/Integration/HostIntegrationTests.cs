@@ -5,7 +5,8 @@ namespace Probbie.Domain.Tests.Integration
   internal class HostIntegrationTests
   {
     [Test]
-    public void Host_GetDelta_Integration()
+    [Timeout(5000)]
+    public void Host_GetDelta_ReturnsPositiveAndNegativeValues_Integration()
     {
       HostAddress address = "8.8.8.8";
       var sut = new Host(address, new HostHistory(0, 0), new PingSender());
@@ -16,7 +17,7 @@ namespace Probbie.Domain.Tests.Integration
 
       while (sut.GetDelta().Value < 0);
 
-      Assert.IsTrue(true);
+      Assert.Pass();
     }
   }
 }
