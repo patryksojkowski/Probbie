@@ -12,6 +12,8 @@
 
     public int Value { get; }
 
+    public static Latency Infinity => int.MaxValue;
+
     public static implicit operator Latency(int value)
     {
       return new Latency(value);
