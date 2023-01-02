@@ -24,12 +24,11 @@ namespace Probbie.Domain
 
 
       var average = _hostHistory.GetAverage();
+      _hostHistory.AddEntry(latency);
       if (average == 0)
       {
         return 0;
       }
-
-      _hostHistory.AddEntry(latency);
 
       return ((double)latency.Value - average.Value) / average.Value;
     }
